@@ -1,0 +1,54 @@
+<script>
+ function calculation()
+ {
+   weight=document.getElementById("weight").value; 
+   height=document.getElementById("height").value; 
+   age=document.getElementById("age").value; 
+   if(document.getElementById("g1").checked)
+   {
+   bmr=66 + 6.23 * weight + 12.7 * height - 6.8 * age;
+   }
+   else
+   {
+    bmr=65 + 4.35 * weight + 4.7 * height - 4.7 * age;
+   }
+   alert("BMR "+bmr);
+    choice=document.getElementById("sel").value;
+	if(choice==1)
+	{
+	calintake=bmr*1.2;
+	}
+	else if(choice==2)
+	{
+	calintake=bmr*1.375;
+	}
+	else if(choice==3)
+	{
+	calintake=bmr*1.55;
+	}
+	else if(choice==4)
+	{
+	calintake=bmr*1.725;
+	}
+	else
+	{
+	calintake=bmr*1.9;
+	}
+	alert("CALORIE INTAKE "+calintake);
+ }
+</script>
+<center>CALORIE INTAKE CALCULATION</center><br>
+Weight of the person<input type=text id=weight><br>
+Height of the person<input type=text id=height><br>
+Age of the person<input type=text id=age><br>
+Gender
+<input type=radio id=g1 name=gender value=male>Male
+<input type=radio id=g2 name=gender value=female>female<br>
+Choose your daily active state <select id=sel onchange="calculation();">
+<option value=0>select
+<option value=1>Sedentary
+<option value=2>Light active
+<option value=3>Moderate
+<option value=4>Very active
+<option value=5>Extra active
+</select>
